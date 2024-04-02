@@ -1,7 +1,5 @@
-x = "test1";
-printf(x);
+//définit la géometrie
 
+//écrire un maillage 
 
-//hello
-
-//test
+//définir les conditions frontières 
