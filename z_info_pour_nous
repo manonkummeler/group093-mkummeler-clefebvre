@@ -1,11 +1,13 @@
-### Informations utiles à se partager ###
+# Informations utiles à se partager #
 
-03/04 : 
+## build  
 Pour créer le build, il faut utiliser la commande cmake : "cmake -S . -B build"
 Si on ajoute de nouveaux fichiers source à notre projet, 
 on devra les inclure dans le fichier CMakeLists.txt en utilisant la fonction "add_executable". 
 Ensuite, on devra régénérer les fichiers de build en exécutant à nouveau la commande cmake : "cmake -S . -B build"
 
+
+# compiler
 Pour compiler le projet, faire les commandes suivantes : 
 cd build
 make
@@ -14,7 +16,7 @@ Pour executer l'executable, faire la commande suivante :
 ./executable_main 
 
 
-04/03 :
+# structure 
 structures des includes (liens entres les fichiers) :
 
                 main.c
