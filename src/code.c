@@ -2,6 +2,7 @@
 
 #include "struct.h"
 
+//calcule les points d'un arc de cercle
 void calculate_arc(double radius, double start_angle, double end_angle, int n_points) {
     double angle_increment = (end_angle - start_angle) / (double)(n_points - 1);
     
