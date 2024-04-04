@@ -9,3 +9,6 @@ Ensuite, on devra régénérer les fichiers de build en exécutant à nouveau la
 Pour compiler le projet, faire les commandes suivantes : 
 cd build
 make
+
+Pour executer l'executable, faire la commande suivante : 
+./executable_main 
