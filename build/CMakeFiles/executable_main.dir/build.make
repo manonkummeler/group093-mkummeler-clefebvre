@@ -73,15 +73,15 @@ CMakeFiles/executable_main.dir/src/main.c.o: CMakeFiles/executable_main.dir/flag
 CMakeFiles/executable_main.dir/src/main.c.o: /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/projet-c-main/src/main.c
 CMakeFiles/executable_main.dir/src/main.c.o: CMakeFiles/executable_main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/executable_main.dir/src/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/executable_main.dir/src/main.c.o -MF CMakeFiles/executable_main.dir/src/main.c.o.d -o CMakeFiles/executable_main.dir/src/main.c.o -c "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c"
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/executable_main.dir/src/main.c.o -MF CMakeFiles/executable_main.dir/src/main.c.o.d -o CMakeFiles/executable_main.dir/src/main.c.o -c "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c"
 
 CMakeFiles/executable_main.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/executable_main.dir/src/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c" > CMakeFiles/executable_main.dir/src/main.c.i
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c" > CMakeFiles/executable_main.dir/src/main.c.i
 
 CMakeFiles/executable_main.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/executable_main.dir/src/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c" -o CMakeFiles/executable_main.dir/src/main.c.s
+	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c" -o CMakeFiles/executable_main.dir/src/main.c.s
 
 # Object files for target executable_main
 executable_main_OBJECTS = \
