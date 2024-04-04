@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+
+#define PI 3.14159265
+
+
 
 //structure de noeud
 typedef struct {
