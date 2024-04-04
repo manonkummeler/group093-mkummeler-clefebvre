@@ -38,4 +38,4 @@ Pour executer l'executable, faire la commande suivante :
 
 ## Makefile
 Un Mafefile s'est crée tout seul, pratique !
-Demandons aux assistants s'il en faut un ou non, et si oui il faudra l'ajuster spécifiquement à notre code.
+Demandons aux assistants s'il en faut un ou non, et si oui s'il faut l'ajuster spécifiquement à notre code ou non. 
