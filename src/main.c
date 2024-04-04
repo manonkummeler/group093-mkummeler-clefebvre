@@ -1,4 +1,6 @@
-#include <stdio.h>
+/* écrire le code du programme */
+
+#include "code.c"
 
 
 int main() {

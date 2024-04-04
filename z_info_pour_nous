@@ -12,3 +12,18 @@ make
 
 Pour executer l'executable, faire la commande suivante : 
 ./executable_main 
+
+
+04/03 :
+structures des includes (liens entres les fichiers) :
+
+                main.c
+                  |       test.c
+                  v         |
+                code.c  < -- 
+                  |
+                  v
+                struc.h
+                  |
+                  v
+            les librairies

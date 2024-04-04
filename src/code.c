@@ -1,1 +1,3 @@
-//écrire les fonctions 
+/* écrire les fonctions */ 
+
+#include "struct.h"

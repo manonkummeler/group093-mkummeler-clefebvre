@@ -1,1 +1,3 @@
-//écrire des tests pour les fonctions
+/* écrire des tests pour les fonctions */
+
+#include "code.c"
