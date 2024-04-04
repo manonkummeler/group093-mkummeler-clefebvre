@@ -7,7 +7,7 @@ on devra les inclure dans le fichier CMakeLists.txt en utilisant la fonction "ad
 Ensuite, on devra régénérer les fichiers de build en exécutant à nouveau la commande cmake : "cmake -S . -B build"
 
 
-# compiler
+## compiler
 Pour compiler le projet, faire les commandes suivantes : 
 cd build
 make
@@ -16,7 +16,7 @@ Pour executer l'executable, faire la commande suivante :
 ./executable_main 
 
 
-# structure 
+## structure 
 structures des includes (liens entres les fichiers) :
 
                 main.c
@@ -25,7 +25,7 @@ structures des includes (liens entres les fichiers) :
                 code.c  < -- 
                   |
                   v
-                struc.h
+               struct.h
                   |
                   v
-            les librairies
+           les librairies
