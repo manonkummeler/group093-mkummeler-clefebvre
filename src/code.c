@@ -4,6 +4,7 @@
 
 //calcule les points d'un arc de cercle
 void calculate_arc(double radius, double start_angle, double end_angle, int n_points) {
+    printf("Points de l'arc de cercle:\n");
     double angle_increment = (end_angle - start_angle) / (double)(n_points - 1);
     
     for (int i = 0; i < n_points; ++i) {
@@ -13,7 +14,9 @@ void calculate_arc(double radius, double start_angle, double end_angle, int n_po
         printf("Point %d: x = %f, y = %f\n", i+1, x, y);
 
     }
+    printf("\n\n");
 }
+
 
 //calculer les noeuds de notre arc avec la fonction calculate_arc 
 //et ensuite les utilsier pour notre géométrie et créer un maillage
