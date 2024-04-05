@@ -1,6 +1,6 @@
-/* écrire les fonctions */ 
+/* toutes les fonctions */ 
 
-#include "struct.h"
+#include "code.h"
 
 //calcule les points d'un arc de cercle
 void calculate_arc(double radius, double start_angle, double end_angle, int n_points) {
@@ -88,18 +88,3 @@ void printMesh(Mesh *mesh) {
 }
 
 
-
-//initialisation d'un vecteur
-void vector_init(Vector* vec) {
-    vec->data = NULL;
-    vec->size = 0;
-    vec->capacity = 0;
-}
-
-//libérer la mémoire allouée pour un vecteur
-void vector_free(Vector* vec) {
-    free(vec->data);
-    vec->data = NULL;
-    vec->size = 0;
-    vec->capacity = 0;
-}

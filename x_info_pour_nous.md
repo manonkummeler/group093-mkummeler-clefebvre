@@ -16,9 +16,12 @@ Ensuite, on devra régénérer le build en exécutant à nouveau la commande cma
 structures des includes (liens entres les fichiers) :
 
                 main.c
-                  |       test.c
-                  v         |
-                code.c  < -- 
+                  |
+                  v       tests.c
+                code.c       |
+                  |      tests.h
+                  v          |
+                code.h  < ---
                   |
                   v
                struct.h

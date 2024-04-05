@@ -1,4 +1,4 @@
-/* écrire le code du programme */
+/* le code du programme */
 
 #include "code.c"
 

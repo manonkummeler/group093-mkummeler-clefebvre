@@ -1,4 +1,4 @@
-/* définir les structures */
+/* définit toutes les structures */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,8 +11,12 @@
 #endif
 
 
-
-//structure de noeud
+/*
+Structure représenant un noeud. 
+    nodeName : nom du noeud
+    X : coordonnée x du noeud
+    Y : coordonnée y du noeud
+*/
 typedef struct {
     int nodeName;
     double X;
@@ -20,21 +24,37 @@ typedef struct {
 } Node;
 
 
-//structure d'élément
+/*
+Structure représentant un élément. 
+    elementName : nom de l'élément
+    nodes : tableau contenant les indices des noeuds de l'élément
+*/
 typedef struct {
     int elementName;
     int nodes[3]; //indices des noeuds
 } Element;
 
 
-//structure de condition aux limites
+/*
+Structure représentant une condition aux limites. 
+    boundaryName : nom de la CL
+    nodes : tableau contenant les indices des noeuds de la CL
+*/
 typedef struct {
     int boundaryName;
     int nodes[2];
 } Boundary; 
 
 
-//structure de maillage (ensemble de noeuds, éléments et CL/boundaries)
+/*
+Structure représentant un maillage contenant un ensemble de noeuds, d'éléments et de conditions aux limites. 
+    nNodes : nombre de noeuds du maillage
+    nElements : nombre d'éléments du maillage
+    nBoundaries : nombre de CL sur le maillage
+    nodes : tableau des noeuds du maillage
+    elements : tableau des éléments du maillage
+    boundaries : tableau des CL sur le maillage
+*/
 typedef struct {
     int nNodes;
     int nElements;
@@ -43,13 +63,4 @@ typedef struct {
     Element *elements;
     Boundary *boundaries;
 } Mesh;
-
-
-
-//structure d'un vecteur de pointeurs
-typedef struct {
-    void** data; //tableau de pointeurs
-    size_t size; //taille du vecteur
-    size_t capacity; //capacité/taille max
-} Vector;
 
