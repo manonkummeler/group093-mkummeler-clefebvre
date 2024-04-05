@@ -16,26 +16,7 @@ void calculate_arc(double radius, double start_angle, double end_angle, int n_po
     }
     printf("\n\n");
 }
-
-
-//calculer les noeuds de notre arc avec la fonction calculate_arc 
-//et ensuite les utilsier pour notre géométrie et créer un maillage
-
-
-//initialisation d'un vecteur
-void vector_init(Vector* vec) {
-    vec->data = NULL;
-    vec->size = 0;
-    vec->capacity = 0;
-}
-
-//libérer la mémoire allouée pour un vecteur
-void vector_free(Vector* vec) {
-    free(vec->data);
-    vec->data = NULL;
-    vec->size = 0;
-    vec->capacity = 0;
-}
+//calcule les noeuds de notre arc qu'on pourra ensuite utiliser pour notre géométrie et pour créer le maillage
 
 
 
@@ -105,4 +86,21 @@ void printMesh(Mesh *mesh) {
 
     printf("\nConditions aux limites:\n");
     for (int i = 0; i < mesh->nBoundaries; ++i) printf("Boundary %d: Nodes = %d, %d\n", mesh->boundaries[i].boundaryName, mesh->boundaries[i].nodes[0], mesh->boundaries[i].nodes[1]);
+}
+
+
+
+//initialisation d'un vecteur
+void vector_init(Vector* vec) {
+    vec->data = NULL;
+    vec->size = 0;
+    vec->capacity = 0;
+}
+
+//libérer la mémoire allouée pour un vecteur
+void vector_free(Vector* vec) {
+    free(vec->data);
+    vec->data = NULL;
+    vec->size = 0;
+    vec->capacity = 0;
 }

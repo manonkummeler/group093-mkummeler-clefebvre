@@ -11,14 +11,6 @@
 #endif
 
 
-//structure d'un vecteur de pointeurs
-typedef struct {
-    void** data; //tableau de pointeurs
-    size_t size; //taille du vecteur
-    size_t capacity; //capacité/taille max
-} Vector;
-
-
 
 //structure de noeud
 typedef struct {
@@ -51,3 +43,13 @@ typedef struct {
     Element *elements;
     Boundary *boundaries;
 } Mesh;
+
+
+
+//structure d'un vecteur de pointeurs
+typedef struct {
+    void** data; //tableau de pointeurs
+    size_t size; //taille du vecteur
+    size_t capacity; //capacité/taille max
+} Vector;
+
