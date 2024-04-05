@@ -11,6 +11,28 @@
 #endif
 
 
+/* 
+Structure représentant un point. 
+    x : coordonnée x du point
+    y : coordonnée y du point
+*/
+typedef struct {
+    double x;
+    double y;
+} Point;
+
+/*
+Structure représentant une ligne. 
+    start : point de départ de la ligne
+    end : point d'arrivée de la ligne
+*/
+typedef struct {
+    Point start;
+    Point end;
+} Line;
+
+
+
 /*
 Structure représenant un noeud. 
     nodeName : nom du noeud

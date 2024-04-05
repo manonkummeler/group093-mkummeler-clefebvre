@@ -2,38 +2,62 @@
 
 #include "code.h"
 
-//calcule les points d'un arc de cercle
-void calculate_arc(double radius, double start_angle, double end_angle, int n_points) {
+//calcule les points d'un arc de cercle et les mets dans un tableau de points
+Point* calculate_arc(double radius, double start_angle, double end_angle, int n_points) {
     printf("Points de l'arc de cercle:\n");
     double angle_increment = (end_angle - start_angle) / (double)(n_points - 1);
     
+    //alloue de la mémoire pour le tableau de points
+    Point *points = (Point*)malloc(n_points * sizeof(Point));
+    if (points == NULL) {
+        fprintf(stderr, "Erreur: Impossible d'allouer de la mémoire pour les points\n");
+        exit(EXIT_FAILURE);
+    }
+    //calcule les coordonnées des points et les ajoute au tableau
     for (int i = 0; i < n_points; ++i) {
         double current_angle = start_angle + i * angle_increment;
-        double x = radius * cos(current_angle);
-        double y = radius * sin(current_angle);
-        printf("Point %d: x = %f, y = %f\n", i+1, x, y);
+        points[i].x = radius * cos(current_angle);
+        points[i].y = radius * sin(current_angle);
+        printf("Point %d: x = %f, y = %f\n", i+1, points[i].x, points[i].y);
 
     }
     printf("\n\n");
+    return points;
 }
 //calcule les noeuds de notre arc qu'on pourra ensuite utiliser pour notre géométrie et pour créer le maillage
 
 
+//ajoute un point à un tableau de points
+void addPoint (Point *points, int *nPoints, double x, double y) {
+    points[*nPoints].x = x;
+    points[*nPoints].y = y;
+    (*nPoints)++;
+}
+
+//ajoute une ligne à un tableau de lignes
+void addLine (Line *lines, int *nLines, Point *points, int point1, int point2) {
+    lines[*nLines].start = points[point1];
+    lines[*nLines].end = points[point2];
+    (*nLines)++;
+}
+
+
+
 //crée un maillage
 Mesh* createMesh() {
-    //allouer de la mémoire pour le maillage
+    //alloue de la mémoire pour le maillage
     Mesh *mesh = (Mesh*)malloc(sizeof(Mesh));
     if (mesh == NULL) {
         fprintf(stderr, "Erreur: Impossible d'allouer de la mémoire pour le maillage\n");
         exit(EXIT_FAILURE);
     }
 
-    //définir le nombre de noeuds, d'éléments et de CL
+    //définit le nombre de noeuds, d'éléments et de CL
     mesh->nNodes = 3;
     mesh->nElements = 1;
     mesh->nBoundaries = 3;
 
-    //allouer de la mémoire pour les tableaux de noeuds, d'éléments et de CL
+    //alloue de la mémoire pour les tableaux de noeuds, d'éléments et de CL
     mesh->nodes = (Node*)malloc(mesh->nNodes * sizeof(Node));
     mesh->elements = (Element*)malloc(mesh->nElements * sizeof(Element));
     mesh->boundaries = (Boundary*)malloc(mesh->nBoundaries * sizeof(Boundary));
