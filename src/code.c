@@ -19,7 +19,6 @@ void calculate_arc(double radius, double start_angle, double end_angle, int n_po
 //calcule les noeuds de notre arc qu'on pourra ensuite utiliser pour notre géométrie et pour créer le maillage
 
 
-
 //crée un maillage
 Mesh* createMesh() {
     //allouer de la mémoire pour le maillage
