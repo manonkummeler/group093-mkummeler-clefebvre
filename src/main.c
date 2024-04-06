@@ -13,7 +13,7 @@ int main() {
     Point *points = calculate_arc(radius, start_angle, end_angle, n_points);
 
 
-    Mesh *mesh = createMesh();
+    Mesh *mesh = createMesh("../data/mesh.txt");
     printMesh(mesh);
     freeMesh(mesh);
     

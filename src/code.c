@@ -4,7 +4,7 @@
 
 //calcule les points d'un arc de cercle et les mets dans un tableau de points
 Point* calculate_arc(double radius, double start_angle, double end_angle, int n_points) {
-    printf("Points de l'arc de cercle:\n");
+    //printf("Points de l'arc de cercle:\n");
     double angle_increment = (end_angle - start_angle) / (double)(n_points - 1);
     
     //alloue de la mémoire pour le tableau de points
@@ -18,10 +18,9 @@ Point* calculate_arc(double radius, double start_angle, double end_angle, int n_
         double current_angle = start_angle + i * angle_increment;
         points[i].x = radius * cos(current_angle);
         points[i].y = radius * sin(current_angle);
-        printf("Point %d: x = %f, y = %f\n", i+1, points[i].x, points[i].y);
+        //printf("Point %d: x = %f, y = %f\n", i+1, points[i].x, points[i].y);
 
     }
-    printf("\n\n");
     return points;
 }
 //calcule les noeuds de notre arc qu'on pourra ensuite utiliser pour notre géométrie et pour créer le maillage
@@ -44,7 +43,15 @@ void addLine (Line *lines, int *nLines, Point *points, int point1, int point2) {
 
 
 //crée un maillage
-Mesh* createMesh() {
+Mesh* createMesh(const char *filename) {
+
+    //ouvre le fichier contant le maillage
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        fprintf(stderr, "Erreur: Impossible d'ouvrir le fichier %s\n", filename);
+        exit(EXIT_FAILURE);
+    }
+
     //alloue de la mémoire pour le maillage
     Mesh *mesh = (Mesh*)malloc(sizeof(Mesh));
     if (mesh == NULL) {
@@ -52,40 +59,37 @@ Mesh* createMesh() {
         exit(EXIT_FAILURE);
     }
 
-    //définit le nombre de noeuds, d'éléments et de CL
-    mesh->nNodes = 3;
-    mesh->nElements = 1;
-    mesh->nBoundaries = 3;
-
-    //alloue de la mémoire pour les tableaux de noeuds, d'éléments et de CL
+    //lit le fichier, alloue la mémoire nécéssaire et stocke les informations dans les structures
+    fscanf(file, "Number of nodes %d \n", &mesh->nNodes);
     mesh->nodes = (Node*)malloc(mesh->nNodes * sizeof(Node));
-    mesh->elements = (Element*)malloc(mesh->nElements * sizeof(Element));
-    mesh->boundaries = (Boundary*)malloc(mesh->nBoundaries * sizeof(Boundary));
-
-    if (mesh->nodes == NULL || mesh->elements == NULL || mesh->boundaries == NULL) {
-        fprintf(stderr, "Erreur: Impossible d'allouer de la mémoire pour les données du maillage\n");
+    if (mesh->nodes == NULL) {
+        fprintf(stderr, "Erreur: Impossible d'allouer de la mémoire pour les noeuds\n");
         exit(EXIT_FAILURE);
     }
+    for (int i = 0; i < mesh->nNodes; ++i) {
+        fscanf(file, "%d :  %le  %le \n", &mesh->nodes[i].nodeName, &mesh->nodes[i].X, &mesh->nodes[i].Y);
+    }
+    fscanf(file, "Number of boundaries %d \n", &mesh->nBoundaries);
+    mesh->boundaries = (Boundary*)malloc(mesh->nBoundaries * sizeof(Boundary));
+    if (mesh->boundaries == NULL) {
+        fprintf(stderr, "Erreur: Impossible d'allouer de la mémoire pour les CL\n");
+        exit(EXIT_FAILURE);
+    }
+    for (int i = 0; i < mesh->nBoundaries; ++i) {
+        fscanf(file, "%d :  %d  %d \n", &mesh->boundaries[i].boundaryName, &mesh->boundaries[i].nodes[0], &mesh->boundaries[i].nodes[1]);
+    }
+    fscanf(file, "Number of elements %d \n", &mesh->nElements);
+    mesh->elements = (Element*)malloc(mesh->nElements * sizeof(Element));
+    if (mesh->elements == NULL) {
+        fprintf(stderr, "Erreur: Impossible d'allouer de la mémoire pour les éléments\n");
+        exit(EXIT_FAILURE);
+    }
+    for (int i = 0; i < mesh->nElements; ++i) {
+        fscanf(file, "%d :  %d  %d  %d \n", &mesh->elements[i].elementName, &mesh->elements[i].nodes[0], &mesh->elements[i].nodes[1], &mesh->elements[i].nodes[2]);
+    }
+    
 
-    //définit les noeuds/coordonnées
-    mesh->nodes[0].nodeName = 0; mesh->nodes[0].X = 0.0; mesh->nodes[0].Y = 0.0;
-    mesh->nodes[1].nodeName = 1; mesh->nodes[1].X = 1.0; mesh->nodes[1].Y = 0.0;
-    mesh->nodes[2].nodeName = 2; mesh->nodes[2].X = 0.5; mesh->nodes[2].Y = 1.0;
-
-    //définit l'élément (indices/noms des noeuds)
-    mesh->elements[0].elementName = 0;
-    mesh->elements[0].nodes[0] = 0; mesh->elements[0].nodes[1] = 1; mesh->elements[0].nodes[2] = 2;
-
-    //définit les CL (indices des noeuds)
-    mesh->boundaries[0].boundaryName = 0;
-    mesh->boundaries[0].nodes[0] = 0; mesh->boundaries[0].nodes[1] = 1;
-
-    mesh->boundaries[1].boundaryName = 1;
-    mesh->boundaries[1].nodes[0] = 1; mesh->boundaries[1].nodes[1] = 2;
-
-    mesh->boundaries[2].boundaryName = 2;
-    mesh->boundaries[2].nodes[0] = 2; mesh->boundaries[2].nodes[1] = 0;
-
+    fclose(file);
     return mesh;
 }
 
@@ -93,22 +97,31 @@ Mesh* createMesh() {
 //libère la mémoire allouée pour le maillage
 void freeMesh(Mesh *mesh) {
     free(mesh->nodes);
-    free(mesh->elements);
     free(mesh->boundaries);
+    free(mesh->elements);
     free(mesh);
 }
 
 
 //fonction pour afficher les informations du maillage
 void printMesh(Mesh *mesh) {
-    printf("Noeuds:\n");
-    for (int i = 0; i < mesh->nNodes; ++i) printf("Node %d: X = %.2f, Y = %.2f\n", mesh->nodes[i].nodeName, mesh->nodes[i].X, mesh->nodes[i].Y);
+    printf("Nombre de noeuds: %d \n", mesh->nNodes);
+    for (int i = 0; i < mesh->nNodes; ++i) {
+        printf("Noeud %d: x = %f, y = %f\n", mesh->nodes[i].nodeName, mesh->nodes[i].X, mesh->nodes[i].Y);
+    }
+    printf("\n");
 
-    printf("\nElements:\n");
-    for (int i = 0; i < mesh->nElements; ++i) printf("Element %d: Nodes = %d, %d, %d\n", mesh->elements[i].elementName, mesh->elements[i].nodes[0], mesh->elements[i].nodes[1], mesh->elements[i].nodes[2]);
+    printf("Nombre de CL: %d \n", mesh->nBoundaries);
+    for (int i = 0; i < mesh->nBoundaries; ++i) {
+        printf("CL %d: noeuds %d, %d\n", mesh->boundaries[i].boundaryName, mesh->boundaries[i].nodes[0], mesh->boundaries[i].nodes[1]);
+    }
+    printf("\n");
 
-    printf("\nConditions aux limites:\n");
-    for (int i = 0; i < mesh->nBoundaries; ++i) printf("Boundary %d: Nodes = %d, %d\n", mesh->boundaries[i].boundaryName, mesh->boundaries[i].nodes[0], mesh->boundaries[i].nodes[1]);
+    printf("Nombre d'éléments: %d \n", mesh->nElements);
+    for (int i = 0; i < mesh->nElements; ++i) {
+        printf("Element %d: noeuds %d, %d, %d\n", mesh->elements[i].elementName, mesh->elements[i].nodes[0], mesh->elements[i].nodes[1], mesh->elements[i].nodes[2]);
+    }
+    printf("\n");
 }
 
 
