@@ -3,7 +3,7 @@
 
 
 ## README
-Il faudra le changer en .txt (mais après car c'est un format moins lisible)
+Il faudra le changer en .txt (mais après pcq c'est un format moins lisible)
 
 ## build  
 Pour créer/modifier le build, il faut utiliser la commande cmake : "cmake -S . -B build"
@@ -41,4 +41,4 @@ Pour executer l'executable, faire la commande suivante :
 
 ## Makefile
 Un Mafefile s'est crée tout seul, pratique !
-Demandons aux assistants s'il en faut un ou non, et si oui s'il faut l'ajuster spécifiquement à notre code ou non. 
+(Demandons aux assistants s'il en faut un ou non, et si oui s'il faut l'ajuster spécifiquement à notre code ou non.)
