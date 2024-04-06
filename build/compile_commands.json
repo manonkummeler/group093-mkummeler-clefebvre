@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/build",
-  "command": "/usr/bin/clang   -g -std=gnu11 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -o CMakeFiles/executable_main.dir/src/main.c.o -c \"/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c\"",
-  "file": "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/src/main.c",
-  "output": "CMakeFiles/executable_main.dir/src/main.c.o"
-}
-]

@@ -57,10 +57,10 @@ RM = /usr/local/Cellar/cmake/3.26.3/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main"
+CMAKE_SOURCE_DIR = "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/group093-mkummeler-clefebvre"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/build"
+CMAKE_BINARY_DIR = "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/group093-mkummeler-clefebvre/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/build/CMakeFiles" "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/group093-mkummeler-clefebvre/build/CMakeFiles" "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/group093-mkummeler-clefebvre/build//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/projet-c-main/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/manon/Documents/UCL/bac_3/Q6/elements finis/projet/group093-mkummeler-clefebvre/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

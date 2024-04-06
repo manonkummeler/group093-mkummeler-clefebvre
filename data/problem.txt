@@ -1,0 +1,2 @@
+# la description du problème (sera ouvert par le programme)
+# doit indiquer dans quel fichier le résultat doit être écrit

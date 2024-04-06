@@ -1,8 +1,8 @@
 CMakeFiles/executable_main.dir/src/main.c.o: \
-  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/projet-c-main/src/main.c \
-  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/projet-c-main/src/code.c \
-  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/projet-c-main/src/code.h \
-  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/projet-c-main/src/struct.h \
+  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/group093-mkummeler-clefebvre/src/main.c \
+  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/group093-mkummeler-clefebvre/src/code.c \
+  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/group093-mkummeler-clefebvre/src/code.h \
+  /Users/manon/Documents/UCL/bac_3/Q6/elements\ finis/projet/group093-mkummeler-clefebvre/src/struct.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include/stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include/sys/cdefs.h \
