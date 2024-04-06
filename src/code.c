@@ -1,4 +1,4 @@
-/* toutes les fonctions */ 
+/* toutes les fonctions */   
 
 #include "code.h"
 
